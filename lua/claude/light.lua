@@ -32,7 +32,14 @@ local colors = {
   grey     = "#cbcadb",
 }
 
-function M.setup()
+function M.setup(opts)
+  opts = opts or {}
+  vim.g.colors_name = "claude"
+  vim.o.background = "light"
+  if opts.transparent then
+    vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
+    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+  end
   local highlights = {
     -- Editor basics
     Normal       = { fg = colors.text,   bg = colors.base },
