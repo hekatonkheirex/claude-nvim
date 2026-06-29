@@ -7,14 +7,15 @@ Provides both **dark** and **light** variants, fully compatible with popular plu
 
 - Soft, clay‑toned background (`#141413` dark / `#faf9f5` light) that reduces eye strain.
 - Accent colors taken directly from Anthropic’s Claude branding:
-  - Sky / blue: `#6a9bcc`
-  - Teal / cactus: `#bcd1ca`
-  - Green / olive: `#788c5d`
-  - Yellow / manilla: `#ebdbbc`
-  - Peach / clay / red: `#d97757`
-  - Maroon / accent: `#c6613f`
-  - Mauve / fig: `#c46686`
-  - Pink / flamingo / coral: `#ebcece`
+  - Blue: `#6a9bcc`
+  - Teal: `#bcd1ca`
+  - Green: `#788c5d`
+  - Yellow: `#ebdbbc`
+  - Orange: `#d97757`
+  - Orange‑Red: `#c6613f`
+  - Purple: `#c46686`
+  - Pink: `#ebcece`
+  - Grey: `#cbcadb`
 - Full support for:
   - Syntax highlighting (treesitter)
   - LSP diagnostics & inlay hints
@@ -112,6 +113,6 @@ To tweak a color, edit the corresponding `colors` table and reload Neovim (`:sou
 
 ## License
 
-GPLv3 © 2025 Your Name
+GPLv3 © 2025 @hekatonkheirex (Rodrigo Murayama)
 
 Enjoy coding with the calm, earthy tones of Claude!
