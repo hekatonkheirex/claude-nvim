@@ -36,7 +36,6 @@ function M.setup(opts)
     vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
   end
-
   local highlights = {
     -- Editor basics
     Normal       = { fg = colors.fg,   bg = colors.bg2 },
@@ -49,29 +48,113 @@ function M.setup(opts)
     SignColumn   = { bg = colors.bg2 },
     VertSplit    = { fg = colors.bg3 },
     VertSplitNC  = { fg = colors.bg3 },
-    StatusLine  
+    StatusLine   = { fg = colors.bg2,   bg = colors.bg3, style = "bold" },
+    StatusLineNC = { fg = colors.bg4,   bg = colors.bg2 },
+    TermCursor   = { bg = colors.fg, fg = colors.bg2 },
+    Title        = { fg = colors.green, style = "bold"},
+    VisualNOS    = { bg = colors.bg3 },
+    WarningMsg   = { fg = colors.orange },
+    -- Syntax
+    Statement    = { fg = colors.orange },
+    Conditional  = { fg = colors.orange },
+    Repeat       = { fg = colors.orange },
+    Label        = { fg = colors.orange },
+    Operator     = { fg = colors.fg },
+    Keyword      = { fg = colors.orange },
+    Exception    = { fg = colors.orange },
+    PreProc      = { fg = colors.blue },
+    Include      = { fg = colors.blue },
+    Define       = { fg = colors.blue },
+    Macro        = { fg = colors.blue },
+    PreCondit    = { fg = colors.blue },
+    Constant     = { fg = colors.orange },
+    String       = { fg = colors.green },
+    Character    = { fg = colors.green },
+    Number       = { fg = colors.orange },
+    Boolean      = { fg = colors.orange },
+    Float        = { fg = colors.orange },
+    Identifier   = { fg = colors.fg },
+    Function     = { fg = colors.pink },
+    Underlined   = { fg = colors.blue, style = "underline" },
+    Todo         = { bg = colors.yellow, fg = colors.bg2, style = "bold" },
+    Comment      = { fg = colors.bg4, style = "italic" },
+    Type         = { fg = colors.purple },
+    StorageClass = { fg = colors.purple },
+    Structure    = { fg = colors.purple },
+    Typedef      = { fg = colors.purple },
+    Special      = { fg = colors.orange },
+    SpecialChar  = { fg = colors.orange },
+    Tag          = { fg = colors.orange },
+    Delimiter    = { fg = colors.bg5 },
+    SpecialComment = { fg = colors.bg4, style = "italic" },
+    Debug        = { fg = colors.orange },
+    dir          = { fg = colors.fg },
+    link         = { fg = colors.blue, style = "underline" },
+    -- Diagnostics
+    DiagnosticError   = { fg = colors.orange },
+    DiagnosticWarn    = { fg = colors.yellow },
+    DiagnosticInfo    = { fg = colors.blue },
+    DiagnosticHint    = { fg = colors.teal },
+    DiagnosticOk      = { fg = colors.green },
+    -- Treesitter
+    ["@variable"]              = { fg = colors.fg },
+    ["@variable.builtin"]      = { fg = colors.orange },
+    ["@parameter"]             = { fg = colors.fg },
+    ["@parameter.reference"]   = { fg = colors.fg },
+    ["@function"]              = { fg = colors.pink },
+    ["@function.builtin"]      = { fg = colors.orange },
+    ["@function.call"]         = { fg = colors.pink },
+    ["@method"]                = { fg = colors.pink },
+    ["@method.call"]           = { fg = colors.pink },
+    ["@constructor"]           = { fg = colors.purple },
+    ["@constant"]              = { fg = colors.orange },
+    ["@constant.builtin"]      = { fg = colors.orange },
+    ["@constant.macro"]        = { fg = colors.orange },
+    ["@module"]                = { fg = colors.fg },
+    ["@module.builtin"]        = { fg = colors.orange },
+    ["@label"]                 = { fg = colors.orange },
+    ["@attribute"]             = { fg = colors.purple },
+    ["@attribute.builtin"]     = { fg = colors.orange },
+    ["@property"]              = { fg = colors.fg },
+    ["@punctuation.delimiter"] = { fg = colors.bg5 },
+    ["@punctuation.bracket"]   = { fg = colors.bg5 },
+    ["@punctuation.special"]   = { fg = colors.orange },
+    ["@string"]                = { fg = colors.green },
+    ["@string.regexp"]         = { fg = colors.orange },
+    ["@string.escape"]         = { fg = colors.orange },
+    ["@string.special"]        = { fg = colors.orange },
+    ["@character"]             = { fg = colors.green },
+    ["@character.special"]     = { fg = colors.orange },
+    ["@boolean"]               = { fg = colors.orange },
+    ["@number"]                = { fg = colors.orange },
+    ["@float"]                 = { fg = colors.orange },
+    ["@type"]                  = { fg = colors.purple },
+    ["@type.builtin"]          = { fg = colors.purple },
+    ["@variable.member"]       = { fg = colors.fg },
+    ["@variable.parameter"]    = { fg = colors.fg },
+    ["@function.call"]         = { fg = colors.pink },
+    ["@constructor"]           = { fg = colors.purple },
+    ["@conditional"]           = { fg = colors.orange },
+    ["@repeat"]                = { fg = colors.orange },
+    ["@label"]                 = { fg = colors.orange },
+    ["@operator"]              = { fg = colors.fg },
+    ["@keyword"]               = { fg = colors.orange },
+    ["@keyword.function"]      = { fg = colors.orange },
+    ["@keyword.operator"]      = { fg = colors.orange },
+    ["@keyword.return"]        = { fg = colors.orange },
+    ["@conditional.ternary"]   = { fg = colors.orange },
+    ["@punctuation"]           = { fg = colors.bg5 },
+    ["@comment"]               = { fg = colors.bg4, style = "italic" },
+    ["@comment.todo"]          = { bg = colors.yellow, fg = colors.bg2, style = "bold" },
+    ["@comment.error"]         = { fg = colors.orange },
+    ["@comment.warning"]       = { fg = colors.yellow },
+    ["@comment.hint"]          = { fg = colors.teal },
+    ["@comment.info"]          = { fg = colors.blue },
+  }
 
-Actually we need to   We'll
-     need to generate the full highlights list with the new names. Let's write a quick Python script to produce the highlights from the original mapping, but given time constraints, maybe easier to manually write the highlights using the earlier mapping we derived. Let's do that manually but carefully.
+  for group, opts in pairs(highlights) do
+    vim.api.nvim_set_hl(0, group, opts)
+  end
+end
 
-We need to list all highlight groups from the original and replace the color references.
-
-Instead of doing manual error-prone, we can produce the new file by taking the original highlights and doing string replacements using sed for each color variable.
-
-We can do stepwise: replace all occurrences of `colors\.crust` with `colors.bg0`, `colors\.mantle` -> `colors.bg1`, etc.
-
-Let's do that on the original file.
-
-We'll start with the original file, then apply sed substitutions for each color name.
-
-We'll also need to change the function signature and add the prelue lines before the `local highlights = {`.
-
-Let's do step by step using a script.
-
-First, copy original to a temp file.
-
-
-<tool_call>
-<function=exec_command>
-<parameter=cmd>
-cd /home/mura/Projects/claude-nvim && cp /tmp/orig_dark.lua /tmp/dark_tmp.lua
+return M
