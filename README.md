@@ -29,9 +29,10 @@ Provides both **dark** and **light** variants, fully compatible with popular plu
 ### Using a plugin manager
 
 **Packer.nvim**
+
 ```lua
 use {
-  "your-username/claude-nvim", -- or local path
+  "hekatonkheirex/claude-nvim", -- or local path
   config = function()
     require("claude").setup{
       flavor = "dark" -- or "light"
@@ -41,9 +42,10 @@ use {
 ```
 
 **Lazy.nvim**
+
 ```lua
 {
-  "your-username/claude-nvim",
+  "hekatonkheirex/claude-nvim",
   opts = {
     flavor = "dark", -- default
   },
@@ -54,7 +56,9 @@ use {
 ```
 
 ### Manual installation
+
 Copy the `lua/claude` directory into your runtime path, e.g. `~/.config/nvim/lua/`:
+
 ```lua
 require("claude").setup{
   flavor = "dark"   -- or "light"
@@ -95,6 +99,7 @@ The module accepts an optional table with the following keys (all optional):
 | `styles`     | table  | Override specific highlight styles (see source). |
 
 Example:
+
 ```lua
 require("claude").setup{
   flavor = "light",
@@ -113,6 +118,6 @@ To tweak a color, edit the corresponding `colors` table and reload Neovim (`:sou
 
 ## License
 
-GPLv3 © 2025 @hekatonkheirex (Rodrigo Murayama)
+GPLv3
 
 Enjoy coding with the calm, earthy tones of Claude!

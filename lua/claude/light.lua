@@ -34,17 +34,35 @@ local colors = {
 
 function M.setup(opts)
   opts = opts or {}
-  vim.g.colors_name = "claude"
+  vim.g.colors_name = "claude-light"
   vim.o.background = "light"
   if opts.transparent then
     vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
   end
+  if opts.term_colors then
+    vim.g.terminal_color_0 = colors.base
+    vim.g.terminal_color_1 = colors.orangeRed
+    vim.g.terminal_color_2 = colors.green
+    vim.g.terminal_color_3 = colors.yellow
+    vim.g.terminal_color_4 = colors.blue
+    vim.g.terminal_color_5 = colors.purple
+    vim.g.terminal_color_6 = colors.teal
+    vim.g.terminal_color_7 = colors.text
+    vim.g.terminal_color_8 = colors.surface0
+    vim.g.terminal_color_9 = colors.orangeRed
+    vim.g.terminal_color_10 = colors.green
+    vim.g.terminal_color_11 = colors.yellow
+    vim.g.terminal_color_12 = colors.blue
+    vim.g.terminal_color_13 = colors.purple
+    vim.g.terminal_color_14 = colors.teal
+    vim.g.terminal_color_15 = colors.crust
+  end
   local highlights = {
     -- Editor basics
     Normal       = { fg = colors.text,   bg = colors.base },
     CursorLine   = { bg = colors.mantle },
-    CursorLineNr = { fg = colors.text,   style = "bold" },
+    CursorLineNr = { fg = colors.text,   bold = true },
     Visual       = { bg = colors.surface0 },
     Search       = { bg = colors.blue,    fg = colors.base },
     IncSearch    = { bg = colors.orange,  fg = colors.base },
@@ -52,9 +70,9 @@ function M.setup(opts)
     SignColumn   = { bg = colors.base },
     VertSplit    = { fg = colors.surface0 },
     VertSplitNC  = { fg = colors.surface0 },
-    StatusLine   = { fg = colors.text,   bg = colors.mantle, style = "bold" },
+    StatusLine   = { fg = colors.text,   bg = colors.mantle, bold = true },
     StatusLineNC = { fg = colors.surface1, bg = colors.mantle },
-    Title        = { fg = colors.orange, style = "bold" },
+    Title        = { fg = colors.orange, bold = true },
     Statement    = { fg = colors.orange },
     Conditional  = { fg = colors.orange },
     Repeat       = { fg = colors.orange },
@@ -75,9 +93,9 @@ function M.setup(opts)
     Float        = { fg = colors.orange },
     Identifier   = { fg = colors.text },
     Function     = { fg = colors.pink },
-    Underlined   = { fg = colors.blue, style = "underline" },
-    Todo         = { bg = colors.yellow, fg = colors.base, style = "bold" },
-    Comment      = { fg = colors.surface1, style = "italic" },
+    Underlined   = { fg = colors.blue, underline = true },
+    Todo         = { bg = colors.yellow, fg = colors.base, bold = true },
+    Comment      = { fg = colors.surface1, italic = true },
     Type         = { fg = colors.purple },
     StorageClass = { fg = colors.purple },
     Structure    = { fg = colors.purple },
@@ -86,10 +104,10 @@ function M.setup(opts)
     SpecialChar  = { fg = colors.orange },
     Tag          = { fg = colors.orange },
     Delimiter    = { fg = colors.surface2 },
-    SpecialComment = { fg = colors.surface1, style = "italic" },
+    SpecialComment = { fg = colors.surface1, italic = true },
     Debug        = { fg = colors.orange },
     dir          = { fg = colors.text },
-    link         = { fg = colors.blue, style = "underline" },
+    link         = { fg = colors.blue, underline = true },
     -- Diagnostics
     DiagnosticError   = { fg = colors.orange },
     DiagnosticWarn    = { fg = colors.yellow },
@@ -107,6 +125,7 @@ function M.setup(opts)
     ["@method"]                = { fg = colors.pink },
     ["@method.call"]           = { fg = colors.pink },
     ["@constructor"]           = { fg = colors.purple },
+    ["@constant"]              = { fg = colors.purple },
     ["@constant"]              = { fg = colors.orange },
     ["@constant.builtin"]      = { fg = colors.orange },
     ["@constant.macro"]        = { fg = colors.orange },
@@ -144,8 +163,8 @@ function M.setup(opts)
     ["@keyword.return"]        = { fg = colors.orange },
     ["@conditional.ternary"]   = { fg = colors.orange },
     ["@punctuation"]           = { fg = colors.surface2 },
-    ["@comment"]               = { fg = colors.surface1, style = "italic" },
-    ["@comment.todo"]          = { bg = colors.yellow, fg = colors.base, style = "bold" },
+    ["@comment"]               = { fg = colors.surface1, italic = true },
+    ["@comment.todo"]          = { bg = colors.yellow, fg = colors.base, bold = true },
     ["@comment.error"]         = { fg = colors.orange },
     ["@comment.warning"]       = { fg = colors.yellow },
     ["@comment.hint"]          = { fg = colors.teal },

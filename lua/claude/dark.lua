@@ -36,11 +36,29 @@ function M.setup(opts)
     vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
   end
+  if opts.term_colors then
+    vim.g.terminal_color_0  = colors.bg0
+    vim.g.terminal_color_1  = colors.orangeRed
+    vim.g.terminal_color_2  = colors.green
+    vim.g.terminal_color_3  = colors.yellow
+    vim.g.terminal_color_4  = colors.blue
+    vim.g.terminal_color_5  = colors.purple
+    vim.g.terminal_color_6  = colors.teal
+    vim.g.terminal_color_7  = colors.fg
+    vim.g.terminal_color_8  = colors.bg2
+    vim.g.terminal_color_9  = colors.orangeRed
+    vim.g.terminal_color_10 = colors.green
+    vim.g.terminal_color_11 = colors.yellow
+    vim.g.terminal_color_12 = colors.blue
+    vim.g.terminal_color_13 = colors.purple
+    vim.g.terminal_color_14 = colors.teal
+    vim.g.terminal_color_15 = colors.fg
+  end
   local highlights = {
     -- Editor basics
     Normal       = { fg = colors.fg,   bg = colors.bg2 },
     CursorLine   = { bg = colors.bg1 },
-    CursorLineNr = { fg = colors.fg,   style = "bold" },
+    CursorLineNr = { fg = colors.fg,   bold = true },
     Visual       = { bg = colors.bg3 },
     Search       = { bg = colors.blue,    fg = colors.bg2 },
     IncSearch    = { bg = colors.orange,  fg = colors.bg2 },
@@ -48,10 +66,10 @@ function M.setup(opts)
     SignColumn   = { bg = colors.bg2 },
     VertSplit    = { fg = colors.bg3 },
     VertSplitNC  = { fg = colors.bg3 },
-    StatusLine   = { fg = colors.bg2,   bg = colors.bg3, style = "bold" },
+    StatusLine   = { fg = colors.bg2,   bg = colors.bg3, bold = true },
     StatusLineNC = { fg = colors.bg4,   bg = colors.bg2 },
     TermCursor   = { bg = colors.fg, fg = colors.bg2 },
-    Title        = { fg = colors.green, style = "bold"},
+    Title        = { fg = colors.green, bold = true },
     VisualNOS    = { bg = colors.bg3 },
     WarningMsg   = { fg = colors.orange },
     -- Syntax
@@ -75,9 +93,9 @@ function M.setup(opts)
     Float        = { fg = colors.orange },
     Identifier   = { fg = colors.fg },
     Function     = { fg = colors.pink },
-    Underlined   = { fg = colors.blue, style = "underline" },
-    Todo         = { bg = colors.yellow, fg = colors.bg2, style = "bold" },
-    Comment      = { fg = colors.bg4, style = "italic" },
+    Underlined   = { fg = colors.blue, underline = true },
+    Todo         = { bg = colors.yellow, fg = colors.bg2, bold = true },
+    Comment      = { fg = colors.bg4, italic = true },
     Type         = { fg = colors.purple },
     StorageClass = { fg = colors.purple },
     Structure    = { fg = colors.purple },
@@ -86,10 +104,10 @@ function M.setup(opts)
     SpecialChar  = { fg = colors.orange },
     Tag          = { fg = colors.orange },
     Delimiter    = { fg = colors.bg5 },
-    SpecialComment = { fg = colors.bg4, style = "italic" },
+    SpecialComment = { fg = colors.bg4, italic = true },
     Debug        = { fg = colors.orange },
     dir          = { fg = colors.fg },
-    link         = { fg = colors.blue, style = "underline" },
+    link         = { fg = colors.blue, underline = true },
     -- Diagnostics
     DiagnosticError   = { fg = colors.orange },
     DiagnosticWarn    = { fg = colors.yellow },
@@ -144,8 +162,8 @@ function M.setup(opts)
     ["@keyword.return"]        = { fg = colors.orange },
     ["@conditional.ternary"]   = { fg = colors.orange },
     ["@punctuation"]           = { fg = colors.bg5 },
-    ["@comment"]               = { fg = colors.bg4, style = "italic" },
-    ["@comment.todo"]          = { bg = colors.yellow, fg = colors.bg2, style = "bold" },
+    ["@comment"]               = { fg = colors.bg4, italic = true },
+    ["@comment.todo"]          = { bg = colors.yellow, fg = colors.bg2, bold = true },
     ["@comment.error"]         = { fg = colors.orange },
     ["@comment.warning"]       = { fg = colors.yellow },
     ["@comment.hint"]          = { fg = colors.teal },
