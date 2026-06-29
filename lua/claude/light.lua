@@ -34,7 +34,6 @@ local colors = {
 
 function M.setup(opts)
   opts = opts or {}
-  vim.g.colors_name = "claude-light"
   vim.o.background = "light"
   if opts.transparent then
     vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })

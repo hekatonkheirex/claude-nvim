@@ -46,18 +46,24 @@ function M.load(flavour)
     M.setup() -- initialize with defaults if not yet called
   end
 
-  local use_flavour = flavour or M.options.flavour
-  if use_flavour == "auto" then
-    use_flavour = (vim.o.background == "light") and "light" or "dark"
+  local user_flavour = flavour or M.options.flavor
+  if user_flavour == "auto" then
+    user_flavour = vim.o.background
   end
 
-  -- Normalize to our internal names
-  if use_flavour ~= "dark" and use_flavour ~= "light" then
+  -- Determine which variant to load
+  local use_flavour
+  if user_flavour == "dark" then
+    use_flavour = "dark"
+  elseif user_flavour == "light" then
+    use_flavour = "light"
+  else
+    -- fallback to dark if unknown
     vim.notify(
-      string.format("[claude] Invalid flavour '%s'. Must be 'dark', 'light', or 'auto'.", use_flavour),
-      vim.log.levels.ERROR
+      string.format("[claude] Invalid flavour '%s'. Must be 'dark', 'light', or 'auto'. Falling back to 'dark'.", user_flavour),
+      vim.log.levels.WARN
     )
-    return
+    use_flavour = "dark"
   end
 
   -- Load the appropriate variant
