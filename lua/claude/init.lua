@@ -76,6 +76,16 @@ function M.load(flavour)
   end
 end
 
+-- Automatically reload colorscheme when 'background' option changes (for auto mode)
+vim.api.nvim_create_autocmd("OptionSet", {
+  pattern = "background",
+  callback = function()
+    if M.options.flavor == "auto" then
+      M.load()
+    end
+  end
+})
+
 -- User command to load the colorscheme with optional flavour argument
 vim.api.nvim_create_user_command(
   "Claude",

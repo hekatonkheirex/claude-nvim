@@ -95,7 +95,7 @@ The module accepts an optional table with the following keys (all optional):
 
 | Key          | Type   | Description                                      |
 |--------------|--------|--------------------------------------------------|
-| `flavor`     | `"dark"` \| `"light"` | Choose variant (default: `"dark"`). |
+| `flavor`     | `"dark"` \| `"light"` \| `"auto"` | Choose variant (default: `"dark"`). `"auto"` automatically switches based on `vim.o.background` and updates when the background option changes. |
 | `transparent`| boolean| If true, sets `Normal` background to `NONE` (requires a transparent terminal). |
 | `styles`     | table  | Override specific highlight styles (see source). |
 
