@@ -19,6 +19,7 @@ local colors = {
 
   -- Text (dark on light background)
   text   = "#3d3929",
+  comment = "#bd5d3a",
 
   -- Accent colors from Claude brand (same hues)
   blue     = "#6a9bcc",
@@ -62,9 +63,9 @@ function M.setup(opts)
     Normal       = { fg = colors.text,   bg = colors.base },
     CursorLine   = { bg = colors.mantle },
     CursorLineNr = { fg = colors.text,   bold = true },
-    Visual       = { bg = colors.surface2, fg = colors.text },
-    Search       = { bg = colors.blue,    fg = colors.text },
-    IncSearch    = { bg = colors.orange,  fg = colors.text },
+    Visual       = { bg = colors.bg4, fg = "#000000" },
+    Search       = { bg = colors.comment, fg = "#000000" },
+    IncSearch    = { bg = colors.orange, fg = "#000000" },
     LineNr       = { fg = colors.surface1 },
     SignColumn   = { bg = colors.base },
     VertSplit    = { fg = colors.surface0 },
@@ -93,8 +94,8 @@ function M.setup(opts)
     Identifier   = { fg = colors.text },
     Function     = { fg = colors.pink },
     Underlined   = { fg = colors.blue, underline = true },
-    Todo         = { bg = colors.orange, fg = colors.base, bold = true },
-    Comment      = { fg = colors.surface1, italic = true },
+    Todo         = { bg = colors.orange, fg = "#000000", bold = true },
+    Comment      = { fg = colors.comment, italic = true },
     Type         = { fg = colors.purple },
     StorageClass = { fg = colors.purple },
     Structure    = { fg = colors.purple },
@@ -162,8 +163,8 @@ function M.setup(opts)
     ["@keyword.return"]        = { fg = colors.orange },
     ["@conditional.ternary"]   = { fg = colors.orange },
     ["@punctuation"]           = { fg = colors.surface2 },
-    ["@comment"]               = { fg = colors.surface1, italic = true },
-    ["@comment.todo"]          = { bg = colors.yellow, fg = colors.base, bold = true },
+    ["@comment"]               = { fg = colors.comment, italic = true },
+    ["@comment.todo"]          = { bg = colors.orange, fg = "#000000", bold = true },
     ["@comment.error"]         = { fg = colors.orange },
     ["@comment.warning"]       = { fg = colors.yellow },
     ["@comment.hint"]          = { fg = colors.teal },
