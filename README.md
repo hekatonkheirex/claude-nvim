@@ -16,6 +16,7 @@ Provides both **dark** and **light** variants, fully compatible with popular plu
   - Purple: `#c46686`
   - Pink: `#ebcece`
   - Grey: `#cbcadb`
+- Improved contrast for Visual, Search, and IncSearch highlighting.
 - Full support for:
   - Syntax highlighting (treesitter)
   - LSP diagnostics & inlay hints
