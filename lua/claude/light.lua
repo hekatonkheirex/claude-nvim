@@ -7,7 +7,7 @@ local colors = {
   -- Base neutrals (light)
   crust   = "#e8e6dc",
   mantle  = "#f0eee6",
-  base    = "#faf9f5",
+  base    = "#eeece2",
 
   -- Surface / overlay
   surface0 = "#d1cfc5",
@@ -18,14 +18,14 @@ local colors = {
   overlay2 = "#d97757",
 
   -- Text (dark on light background)
-  text   = "#141413",
+  text   = "#3d3929",
 
   -- Accent colors from Claude brand (same hues)
   blue     = "#6a9bcc",
   teal     = "#bcd1ca",
   green    = "#788c5d",
-  yellow   = "#ebdbbc",
-  orange   = "#d97757",
+  yellow   = "#ebdcbc",
+  orange   = "#da7756",
   orangeRed= "#c6613f",
   purple   = "#c46686",
   pink     = "#ebcece",
@@ -93,7 +93,7 @@ function M.setup(opts)
     Identifier   = { fg = colors.text },
     Function     = { fg = colors.pink },
     Underlined   = { fg = colors.blue, underline = true },
-    Todo         = { bg = colors.yellow, fg = colors.base, bold = true },
+    Todo         = { bg = colors.orange, fg = colors.base, bold = true },
     Comment      = { fg = colors.surface1, italic = true },
     Type         = { fg = colors.purple },
     StorageClass = { fg = colors.purple },
@@ -109,7 +109,7 @@ function M.setup(opts)
     link         = { fg = colors.blue, underline = true },
     -- Diagnostics
     DiagnosticError   = { fg = colors.orange },
-    DiagnosticWarn    = { fg = colors.yellow },
+    DiagnosticWarn    = { fg = colors.orange },
     DiagnosticInfo    = { fg = colors.blue },
     DiagnosticHint    = { fg = colors.teal },
     DiagnosticOk      = { fg = colors.green },

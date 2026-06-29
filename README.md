@@ -5,13 +5,12 @@ Provides both **dark** and **light** variants, fully compatible with popular plu
 
 ## Features
 
-- Soft, clay‑toned background (`#141413` dark / `#faf9f5` light) that reduces eye strain.
+- Soft, clay‑toned background (`#000000` dark / `#eeece2` light) with text color `#3d3929` that reduces eye strain.
 - Accent colors taken directly from Anthropic’s Claude branding:
   - Blue: `#6a9bcc`
   - Teal: `#bcd1ca`
   - Green: `#788c5d`
-  - Yellow: `#ebdbbc`
-  - Orange: `#d97757`
+  - Orange: `#da7756`
   - Orange‑Red: `#c6613f`
   - Purple: `#c46686`
   - Pink: `#ebcece`
