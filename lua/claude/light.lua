@@ -7,7 +7,7 @@ local colors = {
   -- Base neutrals (light)
   crust     = "#e8e6dc",
   mantle    = "#eeece2",
-  base      = "##f8f8f6",
+  base      = "#f8f8f6",
 
   -- Surface / overlay
   surface0  = "#d1cfc5",
@@ -177,4 +177,3 @@ function M.setup(opts)
 end
 
 return M
-
