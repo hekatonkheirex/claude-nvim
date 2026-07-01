@@ -46,7 +46,7 @@ function M.load(flavour)
     M.setup() -- initialize with defaults if not yet called
   end
 
-  local user_flavour = flavour or M.options.flavor
+  local user_flavour = flavour or M.options.flavour
   if user_flavour == "auto" then
     user_flavour = vim.o.background
   end
@@ -80,7 +80,7 @@ end
 vim.api.nvim_create_autocmd("OptionSet", {
   pattern = "background",
   callback = function()
-    if M.options.flavor == "auto" then
+    if M.options.flavour == "auto" then
       M.load()
     end
   end
