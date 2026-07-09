@@ -66,14 +66,22 @@ function M.load(flavour)
     use_flavour = "dark"
   end
 
-  -- Load the appropriate variant
+  -- Load the appropriate variant. Set colors_name + fire ColorScheme
+  -- directly instead of calling vim.cmd.colorscheme: this function is
+  -- itself invoked from colors/claude.vim (sourced by :colorscheme), so
+  -- calling vim.cmd.colorscheme here would re-enter that same command
+  -- while it's still running. Neovim's reentrancy guard silently no-ops
+  -- the inner call, which means colors_name never actually gets set.
+  local name
   if use_flavour == "dark" then
     require("claude.dark").setup(M.options)
-    vim.cmd.colorscheme "claude"
+    name = "claude"
   else
     require("claude.light").setup(M.options)
-    vim.cmd.colorscheme "claude-light"
+    name = "claude-light"
   end
+  vim.g.colors_name = name
+  vim.api.nvim_exec_autocmds("ColorScheme", { pattern = name })
 end
 
 -- Automatically reload colorscheme when 'background' option changes (for auto mode)
